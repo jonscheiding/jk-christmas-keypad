@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import KeyPad from './KeyPad';
 
+import './Lock.css';
+
 class Lock extends React.Component {
   constructor(props) {
     super(props);
@@ -18,11 +20,13 @@ class Lock extends React.Component {
       .sort();
 
     return (
-      <KeyPad
-        characters={characters} 
-        length={passcode.length}
-        entry={this.state.entry}
-        onEntryChanged={this.onEntryChanged} />
+      <div className='lock'>
+        <KeyPad
+          characters={characters} 
+          length={passcode.length}
+          entry={this.state.entry}
+          onEntryChanged={this.onEntryChanged} />
+      </div>      
     )
   }
 

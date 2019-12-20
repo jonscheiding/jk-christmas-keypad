@@ -1,13 +1,34 @@
 import React from 'react';
+import cx from 'classnames';
+
 import './App.css';
 
 import Lock from './Lock.js';
 
-function App() {
-  return (
-    <Lock passcode='hello' 
-      pauseOnCompletedEntry={1000} />
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {unlocked: false}
+  }
+  
+  render() {
+    return (
+      <div>
+        <div className={cx({'lock-overlay': true, 'unlocked': this.state.unlocked})}>
+          <Lock passcode='HELLO' 
+            pauseOnCompletedEntry={1000}
+            onSuccess={this.unlock} />
+        </div>
+        <div className='content'>
+          YOU WIN!
+        </div>
+      </div>
+    );
+  }
+
+  unlock = () => {
+    this.setState({unlocked: true});
+  }
 }
 
 export default App;

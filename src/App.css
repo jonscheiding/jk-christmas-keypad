@@ -1,0 +1,14 @@
+.lock-overlay {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}
+
+.lock-overlay.unlocked {
+  transition: top 1s;
+  top: -100vh;
+}
+
+.content {
+  z-index: 0;
+}

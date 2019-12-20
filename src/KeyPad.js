@@ -13,9 +13,9 @@ function KeyPad({characters, length, entry, onEntryChanged}) {
   }
 
   return(
-    <div>
-      <div><input type='text' value={entry} readOnly={true} /></div>
-      <div>
+    <div className='keypad'>
+      <input type='text' value={entry} readOnly={true} />
+      <div className='keys'>
         {characters.map(c => <Key key={c} character={c} onPress={onPress} />)}
       </div>
     </div>
