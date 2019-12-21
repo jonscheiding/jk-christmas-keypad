@@ -2,7 +2,12 @@
   background-color: #354363;
   height: 100vh;
   width: 100vw;
-  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+
   font-size: 2em;
 }
 
@@ -37,13 +42,14 @@
 }
 
 .keypad {
-  padding: 20vw 20vw;
+  width: 60vw;
+  margin: auto;
 }
 
 .keypad input {
   width: 100%;
   box-sizing: border-box;
-  height: 25vw;
+  height: 5rem;
   text-align: center;
   font-family: monospace;
   font-size: 2.5rem;
@@ -54,7 +60,8 @@
 .keypad .keys {
   display: grid;
   grid-template-columns: 30vw 30vw;
-  margin-top: 3rem;
+  margin: auto;
+  margin-top: 5vh;
 }
 
 button {
@@ -81,4 +88,19 @@ button:active {
 
 button:focus {
   outline: none;
+}
+
+@media only screen and (min-width: 640px) {
+  .keypad {
+    width: 60vh;
+  }
+
+  .keypad .keys {
+    grid-template-columns: 30vh 30vh;
+  }
+
+  button {
+    width: calc(30vh - 20px);
+    height: calc(30vh - 20px);
+  }
 }

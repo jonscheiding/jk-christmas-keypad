@@ -13,7 +13,7 @@ class App extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='app'>
         <div className={cx({'lock-overlay': true, 'unlocked': this.state.unlocked})}>
           <Lock passcode='HELLO' 
             pauseOnCompletedEntry={1000}
