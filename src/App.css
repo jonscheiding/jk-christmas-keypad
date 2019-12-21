@@ -4,11 +4,13 @@
   top: 0;
 }
 
-.lock-overlay.unlocked {
-  transition: top 1s;
+.lock-overlay.opened {
+  transition: top 2s;
   top: -100vh;
 }
 
 .content {
   z-index: 0;
+  height: 100vh;
+  background-color: black;
 }

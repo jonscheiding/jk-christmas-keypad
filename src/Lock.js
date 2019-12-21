@@ -31,7 +31,6 @@ class Lock extends React.Component {
           length={passcode.length}
           entry={this.state.entry}
           onEntryChanged={this.onEntryChanged} />
-        {success ? <Sound url='success.mp3' playStatus={Sound.status.PLAYING}/> : null}
         {failure ? <Sound url='failure.mp3' playStatus={Sound.status.PLAYING}/> : null}
       </div>
     )
@@ -43,14 +42,14 @@ class Lock extends React.Component {
     this.setState({entry});
 
     if(entry.length >= passcode.length) {
-      setTimeout(() => {
-        if(entry === passcode) {
-          onSuccess(entry);
-        } else {
+      if(entry === passcode) {
+        onSuccess(entry);
+      } else {
+        setTimeout(() => {
           onFailure(entry);
           this.setState({entry: ''});
-        }
-      }, pauseOnCompletedEntry);
+        }, pauseOnCompletedEntry);
+      }
     }
   }
 }
