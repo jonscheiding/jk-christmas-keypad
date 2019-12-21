@@ -10,17 +10,17 @@ class App extends React.Component {
     super(props);
     this.state = {unlocked: false}
   }
-  
+
   render() {
     return (
       <div className='app'>
         <div className={cx({'lock-overlay': true, 'unlocked': this.state.unlocked})}>
-          <Lock passcode='HELLO' 
+          <Lock passcode={process.env.REACT_APP_PASSCODE} 
             pauseOnCompletedEntry={1000}
             onSuccess={this.unlock} />
         </div>
         <div className='content'>
-          YOU WIN!
+          
         </div>
       </div>
     );
