@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import KeyPad from './KeyPad';
 
@@ -19,14 +20,17 @@ class Lock extends React.Component {
       .from(new Set(Array.from(passcode)))
       .sort();
 
+    const success = this.state.entry === passcode;
+    const failure = this.state.entry.length === passcode.length && !success;
+
     return (
-      <div className='lock'>
+      <div className={cx('lock', { success, failure })}>
         <KeyPad
           characters={characters} 
           length={passcode.length}
           entry={this.state.entry}
           onEntryChanged={this.onEntryChanged} />
-      </div>      
+      </div>
     )
   }
 

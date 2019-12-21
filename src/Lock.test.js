@@ -68,14 +68,58 @@ test('entering incorrect passcode raises failure event', () => {
   expect(mockOnFailure.mock.calls[0][0]).toBe('ABCCD');
 });
 
-test('incorrect passcode is cleared after timeout', () => {
+test('entering correct passcode sets success style', () => {
+  jest.useFakeTimers();
+  const passcode = 'ABCDD';
+
+  //
+
+  const { container, getAllByRole } = render(<Lock passcode={passcode} />);
+  const buttons = getAllByRole('button');
+
+  fireEvent.click(buttons[0]);
+  fireEvent.click(buttons[1]);
+  fireEvent.click(buttons[2]);
+  fireEvent.click(buttons[3]);
+  fireEvent.click(buttons[3]);
+  
+  //
+  
+  expect(container.firstChild).toHaveClass('success');
+
+  jest.advanceTimersByTime(1000);
+});
+
+test('entering incorrect passcode sets failure class', () => {
+  jest.useFakeTimers();
+  const passcode = 'ABCDD';
+
+  //
+
+  const { getAllByRole, container } = render(<Lock passcode={passcode} />);
+  const buttons = getAllByRole('button');
+
+  fireEvent.click(buttons[0]);
+  fireEvent.click(buttons[1]);
+  fireEvent.click(buttons[2]);
+  fireEvent.click(buttons[2]);
+  fireEvent.click(buttons[3]);
+  
+  //
+  
+  expect(container.firstChild).toHaveClass('failure');
+
+  jest.advanceTimersByTime(1000);
+});
+
+test('incorrect passcode and failure class cleared after timeout', () => {
   jest.useFakeTimers();
   const passcode = 'ABCDD';
   const mockOnFailure = jest.fn(() => {});
 
   //
 
-  const { getAllByRole, getByRole } = render(<Lock passcode={passcode} onFailure={mockOnFailure} />);
+  const { getAllByRole, getByRole, container } = render(<Lock passcode={passcode} onFailure={mockOnFailure} />);
   const buttons = getAllByRole('button');
 
   fireEvent.click(buttons[0]);
@@ -93,6 +137,7 @@ test('incorrect passcode is cleared after timeout', () => {
   jest.advanceTimersByTime(1000);
 
   expect(input).toHaveAttribute('value', '');
+  expect(container.firstChild).not.toHaveClass('failure');
 });
 
 test('renders an input with the characters entered so far', () => {
