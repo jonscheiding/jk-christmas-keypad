@@ -28,7 +28,7 @@ class App extends React.Component {
         <div className='content'>
           <YouTube 
             videoId={process.env.REACT_APP_VIDEO_ID} 
-            opts={{width: '100%'}}
+            opts={{width: '100%', playerVars: { playsinline: 1 }}}
             onReady={e => this.videoTarget = e.target} />
         </div>
       </div>

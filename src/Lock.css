@@ -66,6 +66,7 @@
 
 button {
   margin: 10px;
+  padding: 0;
   width: calc(30vw - 20px);
   height: calc(30vw - 20px);
 
@@ -76,6 +77,7 @@ button {
 
   font-family: sans-serif;
   font-size: 3rem;
+  text-align: center;
 
   box-shadow: 5px 5px 5px #333;
 
