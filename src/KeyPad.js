@@ -10,7 +10,7 @@ function KeyPad({characters, length, entry, onEntryChanged}) {
     };
 
     onEntryChanged(entry + character);
-  }
+  };
 
   return(
     <div className='keypad'>

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 function Key({character, onPress}) {
   if(!onPress) {
-    onPress = () => {}
+    onPress = () => {};
   }
 
   return (
     <button onClick={() => onPress(character)}>
       {character}
     </button>
-  )
+  );
 }
 
 Key.propTypes = {

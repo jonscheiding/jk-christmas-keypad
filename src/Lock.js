@@ -33,7 +33,7 @@ class Lock extends React.Component {
           onEntryChanged={this.onEntryChanged} />
         {failure ? <Sound url='failure.mp3' playStatus={Sound.status.PLAYING}/> : null}
       </div>
-    )
+    );
   }
 
   onEntryChanged = (entry) => {
