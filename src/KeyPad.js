@@ -12,9 +12,14 @@ function KeyPad({characters, length, entry, onEntryChanged}) {
     onEntryChanged(entry + character);
   };
 
+  let displayedValue = entry;
+  while(displayedValue.length < length) {
+    displayedValue += '•';
+  }
+
   return(
     <div className='keypad'>
-      <input type='text' value={entry} readOnly={true} />
+      <input type='text' value={displayedValue} readOnly={true} />
       <div className='keys'>
         {characters.map(c => <Key key={c} character={c} onPress={onPress} />)}
       </div>

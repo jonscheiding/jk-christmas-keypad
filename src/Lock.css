@@ -82,6 +82,8 @@ button {
   box-shadow: 5px 5px 5px #333;
 
   cursor: pointer;
+
+  touch-action: manipulation;
 }
 
 button:active {
@@ -94,15 +96,15 @@ button:focus {
 
 @media only screen and (min-width: 640px) {
   .keypad {
-    width: 60vh;
+    width: 40vh;
   }
 
   .keypad .keys {
-    grid-template-columns: 30vh 30vh;
+    grid-template-columns: 20vh 20vh;
   }
 
   button {
-    width: calc(30vh - 20px);
-    height: calc(30vh - 20px);
+    width: calc(20vh - 20px);
+    height: calc(20vh - 20px);
   }
 }
