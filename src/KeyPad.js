@@ -14,7 +14,7 @@ function KeyPad({characters, length, entry, onEntryChanged}) {
 
   let displayedValue = entry;
   while(displayedValue.length < length) {
-    displayedValue += '•';
+    displayedValue += '-';
   }
 
   return(
