@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Sound from 'react-sound';
 import cx from 'classnames';
 
 import KeyPad from './KeyPad';
@@ -31,7 +30,6 @@ class Lock extends React.Component {
           length={passcode.length}
           entry={this.state.entry}
           onEntryChanged={this.onEntryChanged} />
-        {failure ? <Sound url='failure.mp3' playStatus={Sound.status.PLAYING}/> : null}
       </div>
     );
   }
