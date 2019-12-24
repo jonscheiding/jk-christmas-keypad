@@ -24,7 +24,9 @@ class App extends React.Component {
     return (
       <div className='app'>
         <div className={cx({'lock-overlay': true, 'opened': this.state.opened})}>
-          <Lock passcode={process.env.REACT_APP_PASSCODE} 
+          <Lock
+            passcode={process.env.REACT_APP_PASSCODE} 
+            padding={process.env.REACT_APP_PASSCODE_PADDING}
             pauseOnCompletedEntry={1000}
             onSuccess={this.onLockSuccess} />
         </div>

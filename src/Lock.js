@@ -14,10 +14,10 @@ class Lock extends React.Component {
   }
   
   render() {
-    const { passcode } = this.props;
+    const { passcode, padding } = this.props;
 
     const characters = Array
-      .from(new Set(Array.from(passcode)))
+      .from(new Set(Array.from(passcode + padding)))
       .sort();
 
     const success = this.state.entry === passcode;
